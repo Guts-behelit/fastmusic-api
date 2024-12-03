@@ -5,7 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+#
+garfield-python/
 # Distribution / packaging
 .Python
 build/
