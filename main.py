@@ -8,6 +8,11 @@ import os
 from yt_dlp import YoutubeDL
 import io
 import tempfile
+import uvicorn
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Usa el puerto definido por Render o 8000 por defecto
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
 app = FastAPI()
 # Configurar CORS
 app.add_middleware(
@@ -53,6 +58,11 @@ def download_audio_youtube(idMudic):
         print("Descarga completada.")
     
     return output_path  # Devolver la ruta del archivo descargado
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, Render!"}
+
 
 @app.get('/audio/{audio_id}')
 async def get_audio(audio_id: str):
