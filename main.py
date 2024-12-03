@@ -49,6 +49,8 @@ def download_audio_youtube(idMudic):
         'postprocessors': [],        # No hacer conversiones post-descarga
         'quiet': True,               # Evitar demasiada salida en consola
         'progress_hooks': [],        # No es necesario seguimiento de progreso
+         'sleep_interval': 10,  # Espera de 10 segundos entre descargas
+    'max_sleep_interval': 15,  # Máxima espera de 15 segundos
     }
 
     # Descargar el audio
